@@ -115,6 +115,40 @@ cat tech501-ameenah-az-key.pub
 * Add private key: `ssh-add ~/.ssh/id_rsa`
 
 ### Creating a Virtual Network
+* Click "Create a resource"
+* Search for and select "Virtual Network"
+* Fill in basic details:
+  * Select existing or create new resource group
+  * Enter network name (follow naming convention)
+  * Select "UK South" region
+* Configure IP address space:
+  * Enter address space (e.g. 10.0.0.0/16)
+  * Add subnet (e.g. 10.0.1.0/24)
+* Add tags:
+  * Owner: Your name
+* Review settings and click "Create"
+* Wait for deployment to complete
+* Verify virtual network appears in your resources
 
 
 ### How to make a Virtual Machine
+
+* Click "Create a resource" in Azure portal
+* Search for and select "Virtual Machine"
+* Fill in basic details:
+  * Select your resource group
+  * Enter VM name (follow naming convention)
+  * Choose region (UK South)
+  * Select Ubuntu Server Pro 18.04 LTS
+  * Choose VM size (Standard_B1s recommended)
+* Set authentication:
+  * Authentication type: SSH public key
+  * Username: azureuser
+  * Use existing public key stored in azure or paste new one
+* Networking settings:
+  * Select your virtual network
+  * Choose subnet
+  * Allow SSH and HTTP
+* Add tags:
+  * Owner: Your name
+* Review and create VM
