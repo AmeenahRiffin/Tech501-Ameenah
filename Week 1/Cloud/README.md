@@ -10,6 +10,13 @@ We had a presentation called "What is the Cloud?", and how it works. We were int
 
 On-Premise vs. Cloud Computing
 
+### Different Cloud Models
+
+- **SaaS:** Software as a Service. 
+  -  Note: You don't own the hardware, but you manage it through the service
+- **IaaS:** Infrastructure as a Service. You own the hardware and manage it.
+- **PaaS:** Platform as a Service. You don't own the hardware, but you manage it through the service.
+
 #### On-Premise (Traditional)
 - Your organization owns and manages everything
 - Big upfront costs to buy equipment
