@@ -12,6 +12,7 @@
     - [Commands to create public and private keys for Azure](#commands-to-create-public-and-private-keys-for-azure)
     - [Creating a Virtual Network](#creating-a-virtual-network)
     - [How to make a Virtual Machine](#how-to-make-a-virtual-machine)
+    - [Note on creating images for new VM installations](#note-on-creating-images-for-new-vm-installations)
 
 ## Making a virtual network
 
@@ -137,18 +138,28 @@ cat tech501-ameenah-az-key.pub
 * Search for and select "Virtual Machine"
 * Fill in basic details:
   * Select your resource group
-  * Enter VM name (follow naming convention)
+  * Enter VM name (follow naming convention) IE: "tech501-ameenah-first-deploy-app-vm"
   * Choose region (UK South)
   * Select Ubuntu Server Pro 18.04 LTS
   * Choose VM size (Standard_B1s recommended)
+  * Security type: Standard
+  * SDD Type: Standard SSD
 * Set authentication:
   * Authentication type: SSH public key
   * Username: azureuser
   * Use existing public key stored in azure or paste new one
 * Networking settings:
   * Select your virtual network
-  * Choose subnet
+  * Choose subnet (public subnet for now)
   * Allow SSH and HTTP
+  * Select security group - in the case of the db, we're using "tech501-ameenah-sparta-app-allow-HTTP-SSH-3000"
 * Add tags:
   * Owner: Your name
 * Review and create VM
+
+Ubuntu 22.04 LTS is what we're using for our app. 18.04 LTS what we used for our first launch.
+
+### Note on creating images for new VM installations
+
+* When creating a new image for new VM installations, you may get the error "Managed image is not available because it is not currently supported with Trusted launch virtual machines."
+* To avoid this error, create the image with the "Trusted launch" option set to "Off" (this is the default).
