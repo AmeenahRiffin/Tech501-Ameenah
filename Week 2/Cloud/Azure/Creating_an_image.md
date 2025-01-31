@@ -4,10 +4,10 @@
     * Connect to the VM using SSH
     * Run the following commands:
     
-      sudo apt-get update
-      sudo apt-get upgrade -y
-      sudo cloud-init clean --logs
-      sudo waagent -deprovision+user -force
+      - `sudo apt-get update`
+      - `sudo apt-get upgrade -y`
+      - `sudo cloud-init clean --logs`
+      - `sudo waagent -deprovision+user -force`
     
     * Type 'y' to confirm when prompted
     * Exit the SSH session
