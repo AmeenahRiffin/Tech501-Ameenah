@@ -18,20 +18,12 @@ nvm install --lts
 nvm use --lts
 npm ci
 npm install express
-npm install superagent@latest
 npm install mongodb@latest
 npm install pm2 -g
-
-
+npm install mongoose
 
 git clone https://github.com/AmeenahRiffin/tech501-sparta-app.git
 mv tech501-sparta-app repo
 
-# Ensure env var can be used by all users
-echo "export DB_HOST=mongodb://10.0.2.8:27017/posts" | sudo tee /etc/profile.d/db_host.sh
-
-sudo systemctl start nginx
-
-pm2 start app.js
 
 
