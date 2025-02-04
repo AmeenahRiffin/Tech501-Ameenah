@@ -53,6 +53,7 @@ Created 3 virtual machines, as the database's private IP was needed to configure
 - **Private Subnet VM:** 
   - **Name:** ``tech501-ameenah-in-3-subnet-sparta-db-vm-first``
   - **Subnet:** Placed in the private subnet.
+  - **Zone:** 3
   - **IP address:** Did not allocate a public IP address.
   - **Networking/NSG:** Assigned the private subnet security group to this VM.
   - **Image:** Created using an image that had the mongoDB installation on it.
@@ -63,6 +64,7 @@ Created 3 virtual machines, as the database's private IP was needed to configure
 - **Public Subnet VM:** 
   - **Name:** ``tech501-ameenah-in-3-subnet-sparta-app-vm``
   - **Subnet:** Placed in the public subnet.
+  - **Zone:** 1
   - **IP address:** Allocated a new public IP address.
   - **Networking/NSG:** Assigned the public subnet security group to this VM.
   - **Image:** Created using an image that had the pre-installed sparta app on it.
@@ -74,6 +76,7 @@ Created 3 virtual machines, as the database's private IP was needed to configure
 - **DMZ Subnet VM:** 
   - **Name:** ``tech501-ameenah-in-3-subnet-sparta-app-nva-vm``
   - **Subnet:** Placed in the DMZ subnet.
+  - **Zone:** 2
   - **IP address:** Allocated a new public IP address.
   - **Networking/NSG:** Assigned the DMZ subnet security group to this VM.
   - **Image:** Ubuntu 24.04 was used for this VM.
@@ -96,4 +99,8 @@ I added a route to the route table with the following configuration:
 
 ![Table Routing](routing.png)
 
+
+#### 6. IP Forwarding and IP Tables
+
+![IP Forwarding](ip_forwarding.png)
 
