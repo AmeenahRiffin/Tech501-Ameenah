@@ -4,20 +4,20 @@
  
 echo "Configuring iptables..."
  
-# ADD COMMENT ABOUT WHAT THE FOLLOWING COMMAND(S) DO
+# allows incoming traffic from the loopback interface
 sudo iptables -A INPUT -i lo -j ACCEPT
 sudo iptables -A OUTPUT -o lo -j ACCEPT
  
-# ADD COMMENT ABOUT WHAT THE FOLLOWING COMMAND(S) DO
+# allows incoming traffic from established connections
 sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
  
-# ADD COMMENT ABOUT WHAT THE FOLLOWING COMMAND(S) DO
+# allows outgoing traffic from established connections
 sudo iptables -A OUTPUT -m state --state ESTABLISHED -j ACCEPT
  
-# ADD COMMENT ABOUT WHAT THE FOLLOWING COMMAND(S) DO
+# drops invalid incoming traffic
 sudo iptables -A INPUT -m state --state INVALID -j DROP
  
-# ADD COMMENT ABOUT WHAT THE FOLLOWING COMMAND(S) DO
+# allow incoming SSH traffic from the public subnet
 sudo iptables -A INPUT -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
 sudo iptables -A OUTPUT -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
  
@@ -31,16 +31,16 @@ sudo iptables -A OUTPUT -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
 #sudo iptables -A OUTPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 #sudo iptables -A INPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
  
-# ADD COMMENT ABOUT WHAT THE FOLLOWING COMMAND(S) DO
+# allows incoming MongoDB traffic from the public subnet to the private subnet
 sudo iptables -A FORWARD -p tcp -s 10.0.2.0/24 -d 10.0.4.0/24 --destination-port 27017 -m tcp -j ACCEPT
  
-# ADD COMMENT ABOUT WHAT THE FOLLOWING COMMAND(S) DO
+# allow incoming ICMP traffic from the public subnet to the private subnet
 sudo iptables -A FORWARD -p icmp -s 10.0.2.0/24 -d 10.0.4.0/24 -m state --state NEW,ESTABLISHED -j ACCEPT
  
-# ADD COMMENT ABOUT WHAT THE FOLLOWING COMMAND(S) DO
+# set default policy to drop all incoming traffic
 sudo iptables -P INPUT DROP
  
-# ADD COMMENT ABOUT WHAT THE FOLLOWING COMMAND(S) DO
+# set default policy to drop all forwarded traffic
 sudo iptables -P FORWARD DROP
  
 echo "Done!"
@@ -53,5 +53,4 @@ echo "Make iptables rules persistent..."
 sudo DEBIAN_FRONTEND=noninteractive apt install iptables-persistent -y
 echo "Done!"
 echo ""
-has context menu
 

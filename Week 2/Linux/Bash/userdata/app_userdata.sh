@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Ensure env var can be used by all users
-echo "export DB_HOST=mongodb://10.0.2.10:27017/posts" | sudo tee /etc/profile.d/db_host.sh
+export DB_HOST=mongodb://10.0.4.6:27017/posts
 
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
 
@@ -18,7 +18,5 @@ server {
 EOL'
 
 sudo systemctl restart nginx
-
-cd repo && cd app && npm install
 
 pm2 start app.js
