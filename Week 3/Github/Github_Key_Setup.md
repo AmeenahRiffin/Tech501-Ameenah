@@ -18,7 +18,7 @@
    
    ![alt text](images/image-3.png)
 
-3. Run `eval 'ssh-agent -s'"` to start ssh-agent
+3. Run `eval 'ssh-agent -s'` to start ssh-agent
 
    ![alt text](images/image-5.png)
 
@@ -38,7 +38,7 @@
 
    ![alt text](images/image.png)
 
-8. Create a Folder for "tech501-test-ssh" and navigate to it.
+8. Create a Folder for our repo on your machine using the `mkdir tech501-test-ssh` command and navigate to it using cd.
 
    ![alt text](images/image-7.png)
 
@@ -58,7 +58,7 @@
 
 15. Commit the file `git commit -m "first commit"`
 
-16. Push the file to github `git push origin master`
+16. Push the file to github ` git push --set-upstream origin main`
 
 17. Commit the file to github `git commit -m "added readme with one line"`
 
