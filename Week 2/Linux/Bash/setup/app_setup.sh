@@ -12,18 +12,11 @@ sudo apt-get install wget
 sudo apt-get install nodejs
 sudo apt-get install pm2
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-source ~/.bashrc
-nvm install --lts
-nvm use --lts
-npm ci
-npm install express
-npm install mongodb@latest
-npm install pm2 -g
-npm install mongoose
-
 git clone https://github.com/AmeenahRiffin/tech501-sparta-app.git
-mv tech501-sparta-app repo
 
+mv tech501-sparta-app repo
+cd repo/app
+
+npm install
 
 
