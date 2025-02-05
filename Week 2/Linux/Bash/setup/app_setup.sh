@@ -10,6 +10,7 @@ sudo apt-get install curl
 sudo apt-get install git
 sudo apt-get install wget
 sudo apt-get install nodejs
+sudo apt-get install mongoose
 sudo apt-get install pm2
 
 git clone https://github.com/AmeenahRiffin/tech501-sparta-app.git
@@ -19,4 +20,8 @@ cd repo/app
 
 npm install
 
+
+## Quick version:
+
+sudo apt-get update && sudo apt-get upgrade && sudo apt-get install npm nginx tree curl git wget nodejs pm2 && git clone https://github.com/AmeenahRiffin/tech501-sparta-app.git && mv tech501-sparta-app repo && cd repo/app && npm install
 

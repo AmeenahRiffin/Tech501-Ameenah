@@ -33,11 +33,11 @@ sudo rm index.nginx-debian.html
 
 echo "<html>
 <head>
-    <title>My Custom Page</title>
+    <title>Placeholder Page</title>
 </head>
 <body>
     <h1>Welcome to My Custom Nginx Page</h1>
-    <p>This is a simple HTML page.</p>
+    <p>Unfortunately, I could not get Port 3000 to work so this is just a test page to see things are actually updating..</p>
 </body>
 </html>" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
 
