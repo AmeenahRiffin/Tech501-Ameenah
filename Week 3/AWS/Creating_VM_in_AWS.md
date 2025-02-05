@@ -37,10 +37,6 @@ Note to self: Log in from Ireland server.
    - Run: ``npm install``
    - **Start your app:** npm start or node app.js
 
-5. Access Your Application
-   - Use your EC2 public DNS or IP: [http://your-instance-public-dns:3000](http://3.253.15.1/)
-   - Application should now be accessible
-
 
 ## Some Blockers
 
