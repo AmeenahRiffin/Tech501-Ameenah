@@ -1,4 +1,4 @@
-![alt text](images/image-1.png)
+![alt text](images/graph.png)
 
 ## Setting up Jenkins with GitHub Integration
 
