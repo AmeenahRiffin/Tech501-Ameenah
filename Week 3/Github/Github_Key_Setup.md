@@ -50,22 +50,20 @@
 
 11. Test the file's contents with `cat README.md`.
 
-12. Rename the main branch to "main" `git branch -M main`
+12. Rename the master branch to "main" `git branch -M main`
 
 13. Set origin to github `git remote add origin git@github.com:AmeenahRiffin/tech501-test-ssh.git`
 
 14. Add the file to git `git add README.md` or `git add .` for all files.
 
-15. Commit the file `git commit -m "first commit"`
-
-16. Push the file to github ` git push --set-upstream origin main`
-
-17. Commit the file to github `git commit -m "added readme with one line"`
+15. Commit the file to github `git commit -m "added readme with one line"`
 
    ![alt text](images/image-8.png)
 
-18. Git push the file to github `git push --set-upstream origin main`
+16. Git push the file to github `git push --set-upstream origin main`
 
-19. The changes should now appear on the Git repo.
+17. The changes should now appear on the Git repo.
 
    ![alt text](images/image-9.png)
+
+
