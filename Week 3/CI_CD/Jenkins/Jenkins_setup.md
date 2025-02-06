@@ -15,15 +15,19 @@
 -----BEGIN RSA PRIVATE KEY-----
 -----END RSA PRIVATE KEY-----
 ```
-   ![alt text](images/image-4.png)
+8. Complete the rest of the fields and click "Add".
+9. Add the Jenkins server to the github repo. Navigate to the github repo and click "Settings" > "Deploy Keys" > "Add deploy key" > "Add key". Enter the contents of the private key file and click "Add Key".
+
+<details>
+<summary>Click to expand</summary>
+
+![alt text](images/image-4.png)
 
 ![alt text](images/image-5.png)
 
 ![alt text](images/image-6.png)
 
 ![alt text](images/image-7.png)
-
-----
 
 ![alt text](images/image-10.png)
 ![alt text](images/image-9.png)
@@ -35,6 +39,7 @@
 
 ![alt text](images/image-13.png)
 
+</details>
 
 -------
 
@@ -86,9 +91,12 @@
         ```
 
     **Screenshot of settings:**
+    <details>
+    <summary>Click to expand</summary>
+    
     ![alt text](images/image-14.png)
+    </details>
      
-
 ### Blockers
 
 What I was able to do:
@@ -146,3 +154,17 @@ Finished: FAILURE
 - I checked and ensured that the ssh keys were added to the jenkins server. As we can see in this screenshots here, my key is indeed selected.
   ![alt text](images/image-15.png)
 - My fellow students were unable to get permissions to work, so we may have a group debugging session to look into this.
+
+## Resolution
+
+We were able to get the permissions to work by enabling "SSH Agent" and adding the key to the agent.
+![alt text](images/ssh_agent.png)
+
+This resolved the permissions issue and allowed the git commands to run successfully. See below:
+
+
+<details>
+<summary>Screenshot of the successful run</summary>
+
+![alt text](images/success.png)
+</details>
