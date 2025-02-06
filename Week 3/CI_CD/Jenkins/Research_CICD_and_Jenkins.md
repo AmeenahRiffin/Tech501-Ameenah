@@ -64,4 +64,4 @@ My research showed pipelines help by:
 ## Create a general diagram of CICD
 
 From what I learned, a CICD pipeline flows like this: 
-Source → Build → Test → Deploy → Post-deploy
+Test > Merge > Deploy
