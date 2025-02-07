@@ -58,6 +58,7 @@ This document provides a summary of the setup and configuration for the Jenkins 
 1. **File Transfer Errors**
    - Jenkins was unable to transfer the tested code from Job 1 to Job 3, resulting in a failed deployment.
    - I have checked both Job 1 and Job 3 to ensure artifact files can be transferred as the project specifications state that we cannot clone  directly from GitHub.
+  ![alt text](images/error1.png)
 
 ## Next Steps
 - Investigate why the file transfer from Job 1 to Job 3 is failing.
