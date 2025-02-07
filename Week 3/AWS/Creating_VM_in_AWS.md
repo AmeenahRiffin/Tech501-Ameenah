@@ -54,3 +54,18 @@ Things I have tried:
 - Installing the reverse proxy to see if this helps.
 
 Currently, none of these have helped yet. I will try remaking my VM from scratch and trying a variety of combinations to see what could be causing the issue.
+
+
+## A Re-Attempt
+
+I decided to return to recreate both the VM and the app, as I was unable to get the app running on the first attempt. 
+
+
+Database:
+Ubuntu Server 22.04 LTS
+t3.micro
+My previously created key pair for SSH access
+
+SSH Enabled - 22/tcp
+
+

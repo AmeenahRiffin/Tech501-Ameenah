@@ -168,3 +168,13 @@ This resolved the permissions issue and allowed the git commands to run successf
 
 ![alt text](images/success.png)
 </details>
+
+I also had an issue with my syntax for the git commands, the intention was to merge dev into main. It was reversed. I corrected it to the below:
+```shell
+git checkout main
+git pull origin main 
+git merge origin/dev   
+git push origin main  
+```
+
+This worked, as I made a change to the dev branch, triggered the CI job, and the main branch was updated.
