@@ -5,6 +5,8 @@
     - [Create a Repo on Github](#create-a-repo-on-github)
     - [Initialize Git Repo](#initialize-git-repo)
 
+![image](https://github.com/user-attachments/assets/d72d139a-21a7-4f31-888e-840ff1bf847d)
+
 
 ### Setup SSH Key for Github
 
