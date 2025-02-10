@@ -10,8 +10,10 @@ sudo apt-get install curl
 sudo apt-get install git
 sudo apt-get install wget
 sudo apt-get install nodejs
+sudo n 20
+hash -r
 sudo apt-get install mongoose
-sudo apt-get install pm2
+sudo npm install -g pm2
 
 git clone https://github.com/AmeenahRiffin/tech501-sparta-app.git
 

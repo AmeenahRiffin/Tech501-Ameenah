@@ -1,7 +1,7 @@
 **Objectives:**
 
 Location of file to edit:
-sudo nano "app/views/index.ejs"
+"app/views/index.ejs"
 
 This should be updated via git, and trigger the pipeline to be updated onto our VM via Jenkins as a form of continuous deployment.
  
@@ -67,3 +67,44 @@ This document provides a summary of the setup and configuration for the Jenkins 
 ## Conclusion
 I intend to continue troubleshooting the file transfer issue and resolve it in the next steps.
 
+___________
+
+
+DB Set up:
+
+Set VM instance to DB:
+export DB_HOST=mongodb://172.31.49.236:27017/posts
+
+Based on the image you uploaded, here’s an additional section describing the changes you made and how they fixed the issue:  
+
+---
+
+## Changes Made and Issue Resolution  
+
+After troubleshooting the SCP file transfer issue, I made the following key changes to my Jenkins Job 3 (`ameenah-job3-ci-deploy`):  
+
+1. **Updated SCP Command**  
+   - Previously, Jenkins was failing to transfer the tested code from Job 1 to the AWS EC2 instance.  
+   - I modified the SCP command to correctly reference the workspace directory of `ameenah-job1-ci-test`, ensuring the correct files are copied over.  
+   - The updated command now explicitly pulls from Jenkins' workspace:  
+
+     ```bash
+     scp -o StrictHostKeyChecking=no -r /var/jenkins/workspace/ameenah-job1-ci-test/app/ ubuntu@<EC2_PUBLIC_IP>:~/
+     ```  
+
+2. **Adjusted SSH Commands for Deployment**  
+   - After transferring the files, I updated the SSH command to properly execute on the remote EC2 instance.  
+   - It now:  
+     - Installs missing dependencies (`sudo apt install -y nginx`).  
+     - Sets the database environment variable (`export DB_HOST=mongodb://<PRIVATE_DB_IP>:27017/posts`).  
+     - Stops and restarts the app (`pm2 stop app && pm2 start app.js`).  
+   - This ensures that after each deployment, the latest code is executed correctly.  
+
+3. **Why This Worked**  
+   - The previous issue was due to incorrect file transfer paths, causing Job 3 to not receive the latest tested code.  
+   - Fixing the SCP command ensured that Jenkins correctly copies files from Job 1 to Job 3.  
+   - Ensuring SSH commands execute correctly on the EC2 instance allowed for a smooth deployment, successfully updating the app.  
+
+With these changes, my pipeline now follows a **fully automated CI/CD process**, where changes to the GitHub repo trigger updates that are successfully deployed to my AWS instance.
+
+![Sparta App](images/sparta-app.png)

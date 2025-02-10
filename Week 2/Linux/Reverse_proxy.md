@@ -18,6 +18,8 @@ Update the config:
 
 ```
 server {
+    listen 80;
+
     location / {
         proxy_pass http://localhost:3000;
         proxy_http_version 1.1;
