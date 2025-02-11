@@ -30,7 +30,13 @@ Some of the alternatives to Terraform include:
 # Who is using Terraform in the industry?
 
 Many companies are using Terraform in the industry, including:
-
+- Microsoft
+- Apple
+- Deloitte
+- Expedia
+- Starbucks
+- Unity
+- Many large financial institutions
 
 # What is orchestration in IaC?
 
