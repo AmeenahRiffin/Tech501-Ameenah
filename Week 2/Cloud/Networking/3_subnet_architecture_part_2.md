@@ -104,3 +104,36 @@ I added a route to the route table with the following configuration:
 
 ![IP Forwarding](ip_forwarding.png)
 
+
+
+Script:
+
+Hi everyone! Today I'll guide you through how I set up a secure system for our sparta application using three separate network areas (called subnets) in Microsoft Azure cloud.
+
+Let me break this down in simple terms:
+
+Imagine a building with three separate rooms, each with different security levels:
+
+1. Front Room (Public Subnet):
+   - This is where our main application lives
+   - Like a reception area, it's accessible to visitors (the internet)
+
+2. Security Checkpoint Room (DMZ Subnet):
+   - This is like having a security guard
+   - All communication between the front room and vault must pass through here
+   - We call this our Network Virtual Appliance (NVA) - think of it as a very smart security guard
+   - 
+3. Vault Room (Private Subnet):
+   - This is where our database lives
+   - Like a bank vault, it's the most secure area
+   - No direct access from the outside world
+
+
+One challenge I faced was configuring the route tables and ensuring all the connections between the subnets were properly established - it required careful attention to detail when setting up the routing rules and verifying that traffic was flowing correctly through the DMZ subnet to reach the private subnet.
+
+
+The best part about this setup is the extra security it provides. Even if someone unauthorized gets into the front room (application), they can't get straight to the vault (database) - they still have to get past the security guard!
+
+While this setup takes more time to configure than a simpler two-room setup, it's much more secure - just like having multiple security layers in a real building.
+
+This project helped me understand why it's so important to have different security zones in cloud systems, just like we have different security areas in physical buildings.

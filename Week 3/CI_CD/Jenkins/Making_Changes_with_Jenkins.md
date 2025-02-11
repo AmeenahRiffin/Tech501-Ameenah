@@ -3,6 +3,8 @@
 Location of file to edit:
 "app/views/index.ejs"
 
+![alt text](image-1.png)
+
 This should be updated via git, and trigger the pipeline to be updated onto our VM via Jenkins as a form of continuous deployment.
  
 # Making Changes with Jenkins

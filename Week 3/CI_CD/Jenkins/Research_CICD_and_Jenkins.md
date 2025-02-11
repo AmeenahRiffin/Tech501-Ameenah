@@ -10,6 +10,11 @@ CICD and Jenkins
   - [What alternatives are there for Jenkins](#what-alternatives-are-there-for-jenkins)
   - [Why build a pipeline? Business value?](#why-build-a-pipeline-business-value)
   - [Create a general diagram of CICD](#create-a-general-diagram-of-cicd)
+- [Other notes](#other-notes)
+  - [Master Node](#master-node)
+  - [Agent Nodes/Worker Nodes](#agent-nodesworker-nodes)
+  - [Jenkins jobs and pipelines](#jenkins-jobs-and-pipelines)
+  - [What are some of the required depdendencies for Jenkins?](#what-are-some-of-the-required-depdendencies-for-jenkins)
 
 # What is CI? Benefits?
 
@@ -52,6 +57,9 @@ Alternatives to Jenkins:
 - Travis CI (I have used this in the past for code quality testing.)
 - CircleCI
 - TeamCity
+- Github Actions
+- Azure DevOps
+- Bamboo
 
 ## Why build a pipeline? Business value?
 
@@ -65,3 +73,30 @@ My research showed pipelines help by:
 
 From what I learned, a CICD pipeline flows like this: 
 Test > Merge > Deploy
+
+________________________
+
+# Other notes
+
+## Master Node
+
+- The Jenkins Master Node is the main control center of your Jenkins installation.
+- The master node is critical for Jenkins operations but typically doesn't run builds itself - it distributes them to agent nodes to maintain performance and scalability.
+
+## Agent Nodes/Worker Nodes
+
+- The Jenkins Agent Node is the computer that runs the Jenkins agent.
+- The agent node runs the Jenkins plugins and executes the build steps defined in the Jenkinsfile.
+- Jenkins agents are usually distributed across multiple machines to provide additional computing power and to reduce the load on the master node.
+
+
+## Jenkins jobs and pipelines
+- A Jenkins job is a single build task, such as building a project.
+- A Jenkins pipeline is a series of jobs, which are executed in order.
+- A pipeline can be used to automate a complete application lifecycle, from build to deployment.
+
+
+## What are some of the required depdendencies for Jenkins?
+- JDK (Java Development Kit)
+- Port 8080
+- 
