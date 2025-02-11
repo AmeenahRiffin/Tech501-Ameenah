@@ -24,7 +24,10 @@ The benefits of Terraform include:
 # What are the alternatives to Terraform?
 
 Some of the alternatives to Terraform include:
-
+- Kubernetes
+- Ansible
+- AWS CloudFormation
+- OpenTofu
 
 
 # Who is using Terraform in the industry?
@@ -62,4 +65,15 @@ You should never pass AWS credentials to Terraform as command line arguments or 
 # Why use Terraform for different environments (e.g. production, testing, etc)
 
 Terraform can be used to manage different environments, such as production, testing, etc. This is useful because it allows you to manage the infrastructure for each environment separately, and to manage the dependencies between resources in each environment. It also allows you to create, manage, and version infrastructure as code for each environment.
+
+
+## Other notes:
+
+Terraform uses HashiCorp Configuration Language (HCL) as its programming language.
+
+![alt text](image-4.png)
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
 
