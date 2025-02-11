@@ -22,8 +22,9 @@ I use the windows OS, so this guide is specific to that.
    - Type `terraform -v` and press Enter to verify Terraform is installed. You should see the installed version number.
     ![alt text](image-9.png)
 
-5. **You're Ready to Use Terraform**:
-   - Terraform is now installed on your Windows machine. You can start using it to manage your infrastructure.
-
 **Note**: Ensure you have the necessary permissions to modify system environment variables.
 
+
+## Adding System Variables
+
+Instead of an SSH key, I added the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to the system variables. These are private and cannot be shared, these were added to the system environment variables and tested using `echo $AWS_ACCESS_KEY_ID` and `echo $AWS_SECRET_ACCESS_KEY` in bash. It also works in CMD by using '%' on both sides of the variable instead of '$'.
