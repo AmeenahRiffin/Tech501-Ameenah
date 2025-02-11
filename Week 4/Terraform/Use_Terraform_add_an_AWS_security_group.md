@@ -88,11 +88,11 @@ I knew that setting port 22 to localhost would not work as per project specifica
 
 ![alt text](images/image-17.png)
 
-## Localhost SSH
+## Localhost SSH (Current State vs. Desired State)
 
 For project specifications I remade the VM once more, but then I changed the port 22 cidr block to 127.0.0.1/32 (localhost) for the project specifications.
 
-It would not let me log in, as expected, but it did deploy.
+It would not let me log in, as expected, but it did deploy. My desired state would have been to be able to log in with SSH, as per my first deploy.
 
 ![alt text](images/image-18.png)
 
