@@ -14,7 +14,9 @@
 * `terraform destroy` - destroy all resources managed by the current working
   directory.
 
-  ![alt text](images/image-3.png)
+## Using Terraform
+
+![alt text](images/image-3.png)
 
 Before proceeding, I installed Terraform and ensured my AWS credentials were set in my windows environment.
 
