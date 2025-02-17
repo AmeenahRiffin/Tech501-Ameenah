@@ -26,14 +26,3 @@ Why is this good for you?
   * We can grow bigger without any hiccups when more users join
   
   
-
-Slide 3 - Implementation Details
-Title: Practical Implementation
-- Infrastructure Setup:
-  * VPC with CIDR block 10.0.0.0/16
-  * Public Subnet: 10.0.2.0/24 (App tier)
-  * Private Subnet: 10.0.3.0/24 (Database tier)
-- Security Features:
-  * Public subnet: Allows inbound HTTP/HTTPS
-  * Private subnet: Only allows app subnet communication
-  * Database accessible only through app layer

@@ -12,10 +12,9 @@ On-Premise vs. Cloud Computing
 
 ### Different Cloud Models
 
-- **SaaS:** Software as a Service. 
-  -  Note: You don't own the hardware, but you manage it through the service
-- **IaaS:** Infrastructure as a Service. You own the hardware and manage it.
-- **PaaS:** Platform as a Service. You don't own the hardware, but you manage it through the service.
+- **SaaS:** Software as a Service. Provider manages everything, you just use the software (e.g. Office 365, Gmail)
+- **IaaS:** Infrastructure as a Service. Provider manages hardware, you manage OS and everything above (e.g. Virtual Machines)
+- **PaaS:** Platform as a Service. Provider manages hardware and OS, you just deploy and manage your applications (e.g. Azure App Service)
 
 #### On-Premise (Traditional)
 - Your organization owns and manages everything

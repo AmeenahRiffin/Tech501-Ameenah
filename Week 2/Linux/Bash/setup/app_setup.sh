@@ -9,9 +9,14 @@ sudo apt-get install tree
 sudo apt-get install curl
 sudo apt-get install git
 sudo apt-get install wget
-sudo apt-get install nodejs
-sudo n 20
-hash -r
+# Download and install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+# in lieu of restarting the shell
+\. "$HOME/.nvm/nvm.sh"
+# Download and install Node.js:
+nvm install 22
+# Verify the Node.js version:
+node -v # Should print "v22.14.0".
 sudo apt-get install mongoose
 sudo npm install -g pm2
 
