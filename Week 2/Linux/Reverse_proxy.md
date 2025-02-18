@@ -17,18 +17,7 @@ sudo nano /etc/nginx/sites-available/default
 Update the config:
 
 ```
-server {
-    listen 80;
-
-    location / {
-        proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-    }
-}
+sudo sed -i 's|try_files.*|proxy_pass http://127.0.0.1:3000;|' /etc/nginx/sites-available/default
 ```
 
 This will proxy any requests to http://20.90.167.108/ to the Node.js application running on http://localhost:3000/ - how it does this is by setting proxy_pass to the Node.js application's URL. The location "/" matches any requests to the root URL.

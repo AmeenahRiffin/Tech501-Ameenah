@@ -28,6 +28,10 @@ cd repo/app
 npm install
 
 
+# reverse proxy
+sudo sed -i 's|try_files.*|proxy_pass http://127.0.0.1:3000;|' /etc/nginx/sites-available/default
+
+
 ## Quick version:
 
 sudo apt-get update && sudo apt-get upgrade && sudo apt-get install npm nginx tree curl git wget nodejs pm2 && git clone https://github.com/AmeenahRiffin/tech501-sparta-app.git && mv tech501-sparta-app repo && cd repo/app && npm install
