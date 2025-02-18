@@ -29,6 +29,16 @@ So far, I have:
 
 # Setting up my own Jenkins server
 
+- [Setting up my own Jenkins server](#setting-up-my-own-jenkins-server)
+  - [Setting up Jenkins (On Windows)](#setting-up-jenkins-on-windows)
+  - [Setting up Jenkins (On Ubuntu)](#setting-up-jenkins-on-ubuntu)
+  - [Making a Jenkins Pipeline](#making-a-jenkins-pipeline)
+    - [Job 1 Results](#job-1-results)
+    - [Job 2 Results](#job-2-results)
+    - [Job 3 Results](#job-3-results)
+  - [Final Result](#final-result)
+
+
 ## Setting up Jenkins (On Windows)
 
 I decided to set up Jenkins on my Windows machine first to become familiar with Jenkins. In order to do this, I had to install Java by downloading Java 17 through a file called `jdk-17.0.12_windows-x64_bin.zip` from the Oracle website.
@@ -119,18 +129,18 @@ I followed the same steps as I did in the previous job, there were some new thin
 
 I readded my SSH keys and proceeded to create my pipeline.
 
-### Job 1:
+### Job 1 Results
 
 ![alt text](images/image-5.png)
 
 ![alt text](images/screencapture-3-250-6-202-8080-job-ameenah-job1-ci-test-configure-2025-02-18-16_39_48.png)
 
-### Job 2:
+### Job 2 Results
 
 ![alt text](images/screencapture-3-250-6-202-8080-job-ameenah-job2-ci-merge-configure-2025-02-18-16_40_01.png)
 
 
-### Job 3:
+### Job 3 Results
 
 Job 3 is not yet fully configured. It runs successfully and SCPs the files to the AWS instance, but I have not yet configured the AWS instance to re-run the application yet.
 
