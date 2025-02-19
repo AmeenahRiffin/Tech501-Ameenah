@@ -35,7 +35,8 @@ So far, I have:
   - [Making a Jenkins Pipeline](#making-a-jenkins-pipeline)
     - [Job 1 Results](#job-1-results)
     - [Job 2 Results](#job-2-results)
-    - [Job 3 Results](#job-3-results)
+    - [Job 3 Results (With Blockers)](#job-3-results-with-blockers)
+      - [Job 3 Resolution Update](#job-3-resolution-update)
   - [Final Result](#final-result)
 
 
@@ -129,7 +130,38 @@ I followed the same steps as I did in the previous job, there were some new thin
 
 I readded my SSH keys and proceeded to create my pipeline.
 
+
+
 ### Job 1 Results
+
+1. Configure Basic Settings
+   - Name it **"ameenah-job1-ci-test"** 
+   - Add description: **"Testing phase for pipeline, triggered by dev branch edits"**
+   - Enable **"Discard old builds"** with max 5 builds
+
+2. Set Up GitHub Integration  
+   - Check **"GitHub project" **
+   - Enter repo URL: `https://github.com/AmeenahRiffin/tech501-sparta-app-cid/`
+
+3. Configure Source Code Management
+   - Select Git
+   - Repository URL: `git@github.com:AmeenahRiffin/tech501-sparta-app-cid.git`
+   - Add credentials: `ameenah-jenkins-2-github`
+   - Branch specifier: `/dev`
+
+4. Set Up Build Trigger
+   - Enable **"GitHub hook trigger for GITScm polling"**
+
+5. Add Build Step
+   - Add shell script:
+```     
+     echo TEST
+     cd app
+     npm install
+     npm test
+     pwd
+```  
+
 
 ![alt text](images/image-5.png)
 
@@ -137,17 +169,88 @@ I readded my SSH keys and proceeded to create my pipeline.
 
 ### Job 2 Results
 
+
+1. **Configure Basic Settings**
+   - Name it **"ameenah-job2-ci-merge"** 
+   - Add description: **"Second phase of CI pipeline, merges dev into main after tests pass in Job 1."**  
+   - Enable **"Discard old builds"** with max **5** builds  
+
+2. **Set Up GitHub Integration**  
+   - Check **"GitHub project"**  
+   - Enter repo URL: `https://github.com/AmeenahRiffin/tech501-sparta-app-cid/`  
+  
+3. **Configure Source Code Management**  
+   - Select **Git**  
+   - Repository URL: `git@github.com:AmeenahRiffin/tech501-sparta-app-cid.git`  
+   - Add credentials: **`ameenah-jenkins-2-github`**  
+   - Branch specifier: **`/dev`**  
+
+4. **Set Up Build Trigger**  
+   - Enable **"Build after other projects are built"**  
+   - Add **"ameenah-job1-ci-test"** as the upstream job  
+   - Enable **"GitHub hook trigger for GITScm polling"**  
+
+5. **Set Up SSH Authentication**  
+   - Enable **"SSH Agent"**  
+   - Use credentials: **`ameenah_github_key`**  
+
+6. **Add Build Step**  
+   - Add shell script:  
+   ```sh
+   # Switch to dev to get the latest changes
+   git checkout dev
+   git pull origin dev
+
+   # Switch to main and update it with changes from dev
+   git checkout main
+   git merge dev
+   git push origin main
+   ```
+
 ![alt text](images/screencapture-3-250-6-202-8080-job-ameenah-job2-ci-merge-configure-2025-02-18-16_40_01.png)
 
 
-### Job 3 Results
+### Job 3 Results (With Blockers)
 
 Job 3 is not yet fully configured. It runs successfully and SCPs the files to the AWS instance, but I have not yet configured the AWS instance to re-run the application yet.
 
-Mild blocker as the app refuses to terminate its process in order to re-run itself, will revolve this later.
+Mild blocker as the app refuses to terminate its process (it respawns after being killed) which stops me from restarting the app. I do not know how to configure the AWS instance to run the app in order to re-run itself during the third pipeline step, will revolve this later.
+
+#### Job 3 Resolution Update
+
+I have managed to finish off and resolve the issue with the app refusing to terminate its process, it just needed a restart. The app successfully stops and starts with pm2 now, after reinstalling pm2.
+
+1. **Configure Basic Settings**
+   - Name it **"ameenah-job3-ci-deploy"**
+   - Add description: **"Third phase of CI pipeline, deploys app to AWS instance after merge."**
+   - Enable **"Discard old builds"** with max **5** builds
+
+2. **Set Up GitHub Integration**
+   - Check **"GitHub project"**
+   - Enter repo URL: `https://github.com/AmeenahRiffin/tech501-sparta-app-cid/`
+
+3. **Configure Source Code Management**
+   - Select **None** (We're getting the tested files from Job 1.)
+
+4. **Set Up Build Trigger**
+   - Enable **"Build after other projects are built"**
+   - Add **"ameenah-job2-ci-merge"** as the upstream job
+
+5. **Set Up SSH Authentication**
+   - Enable **"SSH Agent"**
+   - Use credentials: **`ameenah_aws_key`**, **`ameenah_github_key`**, and **`ameenah_jenkins-2-github`**
+
+6. **Add Build Step**
+   - Add shell script:
+ ```  
+scp -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/ameenah-job1-ci-test/app ubuntu@ec2-52-31-12-16.eu-west-1.compute.amazonaws.com:~/
+
+ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-31-12-16.eu-west-1.compute.amazonaws.com "cd app && pm2 stop app && pm2 start app"
+``` 
+
+![alt text](images/screencapture-54-74-120-232-8080-job-ameenah-job3-ci-deploy-configure-2025-02-19-12_28_38.png)
 
 ## Final Result
-
+![alt text](images/sparta.png)
 ![alt text](images/image-6.png)
 
-Files update on the VM, but the app just needs to be re-run. 
