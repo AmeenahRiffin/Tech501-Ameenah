@@ -11,17 +11,15 @@ So far, I have:
 - Set up the required environments:
    - Node JS 20 for the Sparta test app
    - Java 17 and MySQL for the World API
-
+- Built the Jenkins pipeline for app deployment
 
 **What I still need to do:**
-1. Build the Jenkins pipeline for app deployment
-
-2. Create documentation including:
+1. Create documentation including:
    - Setup instructions
    - Jenkins pipeline diagram
    - General process diagram
- - 
-3. Record the 5-7 minute demonstration video showing:
+
+2. Record the 5-7 minute demonstration video showing:
    - Jenkins build process
    - Environment setup
    - Pipeline rebuild steps
