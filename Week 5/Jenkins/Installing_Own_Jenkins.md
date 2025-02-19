@@ -250,6 +250,9 @@ ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-31-12-16.eu-west-1.compute.amazona
 ![alt text](images/screencapture-54-74-120-232-8080-job-ameenah-job3-ci-deploy-configure-2025-02-19-12_28_38.png)
 
 ## Final Result
+
+The app is deployed to the AWS instance, the pipeline has successfully completed and the app is running with the latest changes.
+
 ![alt text](images/sparta.png)
 ![alt text](images/image-6.png)
 
