@@ -12,10 +12,11 @@ So far, I have:
    - Node JS 20 for the Sparta test app
    - Java 17 and MySQL for the World API
 - Built the Jenkins pipeline for app deployment
-
+- Created documentation including:
+   - Setup instructions
+  
 **What I still need to do:**
 1. Create documentation including:
-   - Setup instructions
    - Jenkins pipeline diagram
    - General process diagram
 
